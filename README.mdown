@@ -1,11 +1,11 @@
 # VariableTimer
 
-A subclass of Java's Timer object. VariableTimer allows for dynamic time intervals, defined by a function.
+A subclass of Java's Timer object. VariableTimer allows for dynamic time intervals, defined by a function. The value returned by the function is the period in milliseconds for each scheduled interval.
 
 
 ## Usage
 
-Here is an example of a Timer with a **linear** period. The period will start at one second and increase by one second every interval. For example 1 second, 2 seconds, 3 seconds, … etc.
+Here is an example of a Timer with a **linear** period. The period will start at one second and increase by one second every interval. This timer will execute after 1 second, 2 seconds, 3 seconds, … etc.
 ```java
 VariableTimer myTimer = new VariableTimer();
 myTimer.scheduleAtVariableRate(new TimerTask() {
@@ -19,7 +19,7 @@ myTimer.scheduleAtVariableRate(new TimerTask() {
 });
 ```
 
-Here is an example of a Timer with a **exponential** period. The period will start at one second and increase by one second every interval. For example 1 second, 2 seconds, 3 seconds, … etc.
+Here is an example of a Timer with an **exponential** period. This timer will execute immediately after 0 seconds, 1 second, 4 seconds, 9 seconds, … etc.
 ```java
 VariableTimer myTimer = new VariableTimer();
 myTimer.scheduleAtVariableRate(new TimerTask() {
@@ -32,6 +32,8 @@ myTimer.scheduleAtVariableRate(new TimerTask() {
         }
 });
 ```
+
+Functions such as `pause()` and `resume()` are also supported.
 
 ## License
 
