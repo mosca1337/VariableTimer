@@ -1,0 +1,23 @@
+# VariableTimer
+
+A subclass of Java's Timer object. VariableTimer allows for dynamic time intervals, defined by a function.
+
+
+## Usage
+
+'''java
+VariableTimer myTimer = new VariableTimer();
+myTimer.scheduleAtVariableRate(new TimerTask() {
+        public void run() {
+            System.out.println("Executed!");
+        }
+    }, new Function() {
+        public long function(long x) {
+            return 1000*x + 1000;
+        }
+});
+'''
+
+## License
+
+This code is distributed under the terms and conditions of the [MIT license](LICENSE). 

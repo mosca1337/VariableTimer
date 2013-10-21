@@ -14,29 +14,24 @@ public class VariableTimer extends Timer {
 	private boolean isPaused = false;
 	
 	public static void main(String[] args) {
-
-	    class PrintTask extends TimerTask {
-	        @Override
-	        public void run() {
-	    	    long currentTime = System.currentTimeMillis();
-	    	    currentTime /= 1000;
-	        	System.out.println(currentTime);
-	        	Toolkit.getDefaultToolkit().beep();
-	        }
-	    }
-
-	    class MyFunction implements Function {
-	    	public long function(long x) {
-	    		return 1000*x + 1000;
-	    	}
-	    }
 		
 	    long currentTime = System.currentTimeMillis();
 	    currentTime /= 1000;
     	System.out.println(currentTime+" start time");
 
 		VariableTimer myTimer = new VariableTimer();
-		myTimer.scheduleAtVariableRate(new PrintTask(), new MyFunction());
+		myTimer.scheduleAtVariableRate(new TimerTask() {
+			public void run() {
+	    	    long currentTime = System.currentTimeMillis();
+	    	    currentTime /= 1000;
+	        	System.out.println(currentTime);
+//	        	Toolkit.getDefaultToolkit().beep();
+	        }
+		}, new Function() {
+			public long function(long x) {
+	    		return 1000*x + 1000;
+	    	}
+		});
 		
 		// Pause after x seconds
 	    class PauseTask extends TimerTask {
