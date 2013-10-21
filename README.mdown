@@ -5,7 +5,7 @@ A subclass of Java's Timer object. VariableTimer allows for dynamic time interva
 
 ## Usage
 
-'''java
+```java
 VariableTimer myTimer = new VariableTimer();
 myTimer.scheduleAtVariableRate(new TimerTask() {
         public void run() {
@@ -16,7 +16,7 @@ myTimer.scheduleAtVariableRate(new TimerTask() {
             return 1000*x + 1000;
         }
 });
-'''
+```
 
 ## License
 
